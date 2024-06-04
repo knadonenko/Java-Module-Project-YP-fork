@@ -15,8 +15,12 @@ public class Calculator {
                 break;
             }
             System.out.println("Введите стоимость товара например: '10,45'");
-            double price = SCANNER.nextDouble();
-            storeGoods(command, price);
+            if (SCANNER.hasNextDouble()) {
+                double price = SCANNER.nextDouble();
+                storeGoods(command, price);
+            } else {
+                System.out.println("Введено неверное значение");
+            }
         }
         SCANNER.close();
     }
