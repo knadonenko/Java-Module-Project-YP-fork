@@ -17,7 +17,11 @@ public class Main {
 
         double sum = calculator.getFinalSum(numberOfPersons);
 
-        System.out.println(sum);
+        MoneyHelper moneyHelper = new MoneyHelper();
+        String rubbles = moneyHelper.convertSum(sum);
+
+        System.out.println("Сумма к оплате на персону: " + sum + " " + rubbles);
+//        System.out.println(sum);
 
     }
 

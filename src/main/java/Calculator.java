@@ -33,7 +33,7 @@ public class Calculator {
 
     public void printGoods() {
         System.out.println("Добавленные товары:");
-        goods.forEach((k, v) -> System.out.println(k + " " + v));
+        goods.forEach((k, v) -> System.out.printf("%s %.2f%n", k, v));
     }
 
     public double getFinalSum(int numberOfPersons) {
