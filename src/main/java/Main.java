@@ -21,7 +21,6 @@ public class Main {
         String rubbles = moneyHelper.convertSum(sum);
 
         System.out.println("Сумма к оплате на персону: " + sum + " " + rubbles);
-//        System.out.println(sum);
 
     }
 
