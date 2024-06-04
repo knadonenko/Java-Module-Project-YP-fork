@@ -1,6 +1,6 @@
 public class MoneyHelper {
 
-    public String convertSum(double sum) {
+    public String getCurrencyCase(double sum) {
 
         int intSum = (int) Math.floor(sum);
 

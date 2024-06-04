@@ -18,7 +18,7 @@ public class Main {
         double sum = calculator.getFinalSum(numberOfPersons);
 
         MoneyHelper moneyHelper = new MoneyHelper();
-        String rubbles = moneyHelper.convertSum(sum);
+        String rubbles = moneyHelper.getCurrencyCase(sum);
 
         System.out.printf("Сумма к оплате на персону: %.2f %s", sum, rubbles);
 
