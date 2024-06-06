@@ -1,13 +1,15 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
 
     private static int numberOfPersons = 0;
-    public static final Scanner SCANNER = new Scanner(System.in);
+    public static final Scanner scanner = new Scanner(System.in);
     private static final String GREETING_MESSAGE = "Введите число на сколько человек разделить счет:";
 
     public static void main(String[] args) {
 
+        scanner.useLocale(Locale.US);
         printMessage(GREETING_MESSAGE);
         applyNumberOfPersons();
 
@@ -20,7 +22,7 @@ public class Main {
         MoneyHelper moneyHelper = new MoneyHelper();
         String rubbles = moneyHelper.getCurrencyCase(sum);
 
-        System.out.printf("Сумма к оплате на персону: %.2f %s", sum, rubbles);
+        System.out.printf(Locale.US, "Сумма к оплате на персону: %.2f %s", sum, rubbles);
 
     }
 
@@ -30,11 +32,11 @@ public class Main {
 
     public static void applyNumberOfPersons() {
         while (numberOfPersons <= 1) {
-            if (SCANNER.hasNextInt()) {
-                numberOfPersons = SCANNER.nextInt();
+            if (scanner.hasNextInt()) {
+                numberOfPersons = scanner.nextInt();
             } else {
                 System.out.println("Введены некорректные данные, введите целое число");
-                SCANNER.next();
+                scanner.next();
                 continue;
             }
             if (numberOfPersons < 1) {
@@ -45,5 +47,6 @@ public class Main {
                 System.out.println("Количество персон: " + numberOfPersons);
             }
         }
+        scanner.nextLine();
     }
 }

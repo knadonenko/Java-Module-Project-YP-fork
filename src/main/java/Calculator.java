@@ -1,28 +1,29 @@
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.Locale;
 
 public class Calculator {
 
-    private final Scanner SCANNER = new Scanner(System.in);
     private final HashMap<String, Double> goods = new HashMap<>();
 
     public void addGoods() {
         while (true) {
             String command;
             System.out.println("Добавить товар? Для окончания введите 'завершить'");
-            command = SCANNER.next();
+            command = Main.scanner.nextLine();
             if (command.equalsIgnoreCase("завершить")) {
                 break;
             }
-            System.out.println("Введите стоимость товара например: '10,45'");
-            if (SCANNER.hasNextDouble()) {
-                double price = SCANNER.nextDouble();
+            System.out.println("Введите стоимость товара например: '10.45'");
+            if (Main.scanner.hasNextDouble()) {
+                double price = Main.scanner.nextDouble();
                 storeGoods(command, price);
+                Main.scanner.nextLine();
             } else {
                 System.out.println("Введено неверное значение");
+                Main.scanner.nextLine();
             }
         }
-        SCANNER.close();
+        Main.scanner.close();
     }
 
     private void storeGoods(String name, double price) {
@@ -37,7 +38,7 @@ public class Calculator {
 
     public void printGoods() {
         System.out.println("Добавленные товары:");
-        goods.forEach((k, v) -> System.out.printf("%s %.2f%n", k, v));
+        goods.forEach((k, v) -> System.out.printf(Locale.US, "%s %.2f%n", k, v));
     }
 
     public double getFinalSum(int numberOfPersons) {
